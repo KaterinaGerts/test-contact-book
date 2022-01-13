@@ -9,7 +9,7 @@ import {
   deleteContact,
 } from 'redux/contacts/contacts-operations';
 
-function ContactList({ toggleOnClick }) {
+function ContactList({ onUpdateBtnClick }) {
   const contacts = useSelector(getVisibleContacts);
   const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ function ContactList({ toggleOnClick }) {
         <li className={s.name} key={id}>
           {name}: <span className={s.number}>{number}</span>
           <div className={s.buttonGroup}>
-            <Button type="button" onClick={toggleOnClick}>
+            <Button type="button" onClick={onUpdateBtnClick}>
               Edit
             </Button>
             <Button type="button" onClick={() => onDeleteContact(id)}>

@@ -18,25 +18,28 @@ const validationSchema = Yup.object({
     .required('Required'),
 });
 
-const ModalForm = () => {
+const ModalForm = ({ contact }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
-
   return (
     <Formik
-      initialValues={{ name: '', number: '' }}
+      initialValues={{ id: '', name: '', number: '' }}
       validationSchema={validationSchema}
       onSubmit={(values, { resetForm }) => {
         resetForm();
-        const { name, number } = values;
-        const checkedName = contacts.find(
-          contact => contact.name.toLowerCase() === name.toLowerCase(),
+
+        const { id, name, number } = values;
+        const doubleContact = contacts.find(
+          contact =>
+            contact.id !== id &&
+            contact.name.toLowerCase() === name.toLowerCase(),
         );
-        if (checkedName) {
-          alert(`${name} is already in contacts!`);
-          return contacts;
+
+        if (doubleContact) {
+          alert(`${name} is already in contacts`);
+          return;
         }
-        dispatch(updateContact({ name, number }));
+        dispatch(updateContact({ id, name, number }));
       }}
     >
       <Form className={s.form}>

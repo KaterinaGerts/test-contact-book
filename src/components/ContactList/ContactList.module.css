@@ -1,0 +1,44 @@
+.contactList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 500px;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .contactList {
+    width: 300px;
+    padding-left: 15px;
+  }
+}
+
+.name {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: oblique;
+  color: #fff;
+  text-shadow: -1px -1px #000;
+}
+
+@media screen and (max-width: 768px) {
+  .name {
+    font-size: 16px;
+  }
+}
+
+.number {
+  font-style: italic;
+  color: #ff0000;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-around;
+}

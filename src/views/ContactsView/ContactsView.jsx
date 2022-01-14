@@ -15,7 +15,7 @@ const ContactsView = () => {
 
   const toggleOnClick = () => setToggle(!toggle);
   const onUpdateContact = id => {
-    const contact = contacts.find(contact => contact._id === id);
+    const contact = contacts.find(contact => contact.id === id);
     setContact(contact);
     toggleOnClick();
   };
@@ -29,7 +29,7 @@ const ContactsView = () => {
       <ContactList contact={contact} onUpdateBtnClick={onUpdateContact} />
       {toggle && (
         <Modal onCloseModal={toggleOnClick}>
-          <ModalForm />
+          <ModalForm contact={contact} />
         </Modal>
       )}
     </div>

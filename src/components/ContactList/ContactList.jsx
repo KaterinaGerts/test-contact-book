@@ -25,7 +25,7 @@ function ContactList({ onUpdateBtnClick }) {
         <li className={s.name} key={id}>
           {name}: <span className={s.number}>{number}</span>
           <div className={s.buttonGroup}>
-            <Button type="button" onClick={onUpdateBtnClick}>
+            <Button type="button" onClick={() => onUpdateBtnClick(id)}>
               Edit
             </Button>
             <Button type="button" onClick={() => onDeleteContact(id)}>

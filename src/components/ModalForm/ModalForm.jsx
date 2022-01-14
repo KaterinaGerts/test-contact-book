@@ -23,7 +23,11 @@ const ModalForm = ({ contact }) => {
   const contacts = useSelector(getContacts);
   return (
     <Formik
-      initialValues={{ id: '', name: '', number: '' }}
+      initialValues={{
+        id: contact.id,
+        name: contact.name,
+        number: contact.number,
+      }}
       validationSchema={validationSchema}
       onSubmit={(values, { resetForm }) => {
         resetForm();

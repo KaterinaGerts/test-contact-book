@@ -17,7 +17,7 @@ export const deleteContact = async contactId => {
   return data;
 };
 
-export const updateContact = async contactId => {
-  const { data } = await axios.patch(`/contacts/${contactId}`);
+export const updateContact = async newContact => {
+  const { data } = await axios.patch(`/contacts/${newContact.id}`, newContact);
   return data;
 };

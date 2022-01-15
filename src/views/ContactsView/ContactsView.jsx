@@ -29,7 +29,7 @@ const ContactsView = () => {
       <ContactList contact={contact} onUpdateBtnClick={onUpdateContact} />
       {toggle && (
         <Modal onCloseModal={toggleOnClick}>
-          <ModalForm contact={contact} />
+          <ModalForm contact={contact} toggleOnClick={toggleOnClick} />
         </Modal>
       )}
     </div>

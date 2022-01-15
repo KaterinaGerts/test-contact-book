@@ -18,7 +18,7 @@ const validationSchema = Yup.object({
     .required('Required'),
 });
 
-const ModalForm = ({ contact }) => {
+const ModalForm = ({ contact, toggleOnClick }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
   return (
@@ -30,8 +30,6 @@ const ModalForm = ({ contact }) => {
       }}
       validationSchema={validationSchema}
       onSubmit={(values, { resetForm }) => {
-        resetForm();
-
         const { id, name, number } = values;
         const doubleContact = contacts.find(
           contact =>
@@ -44,6 +42,8 @@ const ModalForm = ({ contact }) => {
           return;
         }
         dispatch(updateContact({ id, name, number }));
+        resetForm();
+        toggleOnClick();
       }}
     >
       <Form className={s.form}>

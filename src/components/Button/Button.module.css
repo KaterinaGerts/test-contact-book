@@ -60,6 +60,12 @@
   box-shadow: rgba(0, 0, 0, 0.5) 3px 10px 10px -10px;
 }
 
+@media screen and (max-width: 768px) {
+  .button {
+    width: 120px;
+  }
+}
+
 .button:hover {
   transition: 0.5s linear;
   background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
